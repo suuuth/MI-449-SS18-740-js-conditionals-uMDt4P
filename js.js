@@ -18,9 +18,10 @@ function partOne (choice) {
     var b = window.confirm('that was a poor choice!  Do you want to try again?')
     _Confirm(b)
   } else {
-    window.alert('not an option! Try Again')
+    window.alert('not an option! Try Again! Try "something good", "something average", or "something bad"')
     b = window.prompt('something happened!  What will you do?')
-    if (b === null || b === undefined || b === '') {
+      partOne(b)
+    if (!b) {
       window.alert('Not an option, try again!')
       var a = window.prompt('something happened!  What will you do?')
       partOne(a)
@@ -33,7 +34,7 @@ function partOne (choice) {
 
 function PartTwoGood () {
   var b = window.prompt('Something good happened!  What will you do next?')
-  if (b === null || b === undefined || b === '') {
+  if (!b) {
     window.alert('Not an option, try again!')
     b = window.prompt('Something good happened!  What will you do next?')
   } else {
@@ -43,7 +44,7 @@ function PartTwoGood () {
 
 function PartTwoAvg () {
   var b = window.prompt('Something happens, neither good nor bad.  Now what will you do?')
-  if (b === null || b === undefined || b === '') {
+  if (!b) {
     window.alert('Not an option, try again!')
     b = window.prompt('Something happens, neither good nor bad.  Now what will you do?')
   } else {
@@ -87,9 +88,10 @@ function _Confirm (choice) {
   if (choice === true) {
     window.alert('Good Choice')
     var a = window.prompt('something happened!  What will you do?')
-    if (a === null || a === undefined) {
+    if (!a) {
       window.alert('Not an option, try again!')
       a = window.prompt('something happened!  What will you do?')
+      partOne(a)
     } else {
       a = a.toLowerCase().trim()
       partOne(a)
@@ -97,9 +99,10 @@ function _Confirm (choice) {
   } else {
     window.alert('Game Over')
     a = window.prompt('something happened!  What will you do?')
-    if (a === null || a === undefined) {
+    if (!a) {
       window.alert('Not an option, try again!')
       a = window.prompt('something happened!  What will you do?')
+      partOne(a)
     } else {
       a = a.toLowerCase().trim()
       partOne(a)
